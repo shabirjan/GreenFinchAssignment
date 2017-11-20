@@ -15,7 +15,10 @@ namespace GreenFinchAssignment.Web.Services
         {
             _context = context;
         }
-        public IEnumerable<SubscribingUserViewModel> All => throw new NotImplementedException();
+        public IEnumerable<SubscribingUserViewModel> All
+        {
+            get { return _context.SubscribingUser.ToList(); }
+        }
 
         public void Delete(string id)
         {
@@ -27,10 +30,10 @@ namespace GreenFinchAssignment.Web.Services
             throw new NotImplementedException();
         }
 
-        public SubscribingUserViewModel GetUserByEmail(string email)
+        public bool CheckIfEmailExists(string email)
         {
-            var user = _context.SubscribingUser.Where(e => e.Email == email).FirstOrDefault();
-            return user;
+            var emailExist = _context.SubscribingUser.Where(e => e.Email.Equals(email)).FirstOrDefault();
+            return (emailExist == null);
 
         }
 

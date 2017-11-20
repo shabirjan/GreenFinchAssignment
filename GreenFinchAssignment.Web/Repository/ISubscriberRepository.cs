@@ -7,7 +7,7 @@ namespace GreenFinchAssignment.Web.Repository
 {
     public interface ISubscriberRepository
     {
-        SubscribingUserViewModel GetUserByEmail(string email);
+        bool CheckIfEmailExists(string email);
         IEnumerable<SubscribingUserViewModel> All { get; }
         SubscribingUserViewModel Find(string id);
         void Insert(SubscribingUserViewModel item);

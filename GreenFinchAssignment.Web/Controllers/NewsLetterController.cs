@@ -14,11 +14,11 @@ namespace GreenFinchAssignment.Web.Controllers
 {
     public class NewsLetterController : Controller
     {
-        private readonly GreenFinchContext _context;
+
         private readonly ISubscriberRepository _subscribeRepository;
-        public NewsLetterController(GreenFinchContext context, ISubscriberRepository subscribeRepository)
+        public NewsLetterController(ISubscriberRepository subscribeRepository)
         {
-            _context = context;
+
             _subscribeRepository = subscribeRepository;
         }
 
@@ -55,8 +55,8 @@ namespace GreenFinchAssignment.Web.Controllers
 
             try
             {
-                var user = _subscribeRepository.GetUserByEmail(Email);
-                return user != null ? Json(false) : Json(true);
+
+                return Json(_subscribeRepository.CheckIfEmailExists(Email));
             }
             catch (Exception ex)
             {
