@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>netcoreapp2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+		<PackageReference Include="Autofac" Version="4.6.2" />
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="Migrations\20171120080519_InitialCreate.Designer.cs" />
+	  <Compile Remove="Migrations\20171120080519_InitialCreate.cs" />
+	  <Compile Remove="Migrations\GreenFinchContextModelSnapshot.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Repository\" />
+	  <Folder Include="Services\" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,47 @@
+@model GreenFinchAssignment.Web.Models.SubscribingUserViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscribingSourceId" class="control-label"></label>
+
+
+             
+				
+               @Html.DropDownListFor(model => model.SubscribingSourceId, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Advert", Value = "1" },
+                            new SelectListItem{ Text="Word of Mouth", Value = "2" },
+				 new SelectListItem{ Text="Other", Value = "3" },
+                         },
+                           "", new { @Id = "SubscribingSourceId", @class = "form-control input-sm", @style = "height:33px" })
+
+                <span asp-validation-for="SubscribingSourceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscribingReason" class="control-label"></label>
+                <input asp-for="SubscribingReason" class="form-control" />
+                <span asp-validation-for="SubscribingReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
